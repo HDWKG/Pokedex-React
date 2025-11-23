@@ -1,0 +1,23 @@
+services:
+  backend:
+    build:
+      context: ./pokemon-api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    container_name: backend-spring
+    networks:
+      - fullstack
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    container_name: frontend-react
+    networks:
+      - fullstack
+
+networks:
+  fullstack:
